@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Парк семейного отдыха «Белый цветок» — Алапаевск</title>
+<meta name="description" content="Концепция семейного парка на берегу реки Нейвы в Алапаевске. Партнёрский проект ООО «Металлург» и НКО «Уралочка».">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EC;
+    --paper-2:#EEEDE3;
+    --white:#FFFFFF;
+    --hvoya:#1F3D2B;
+    --hvoya-soft:#3A5C46;
+    --river:#52727F;
+    --rose:#C68A82;
+    --gold:#A8842F;
+    --ink:#222A24;
+    --ink-soft:#5B655D;
+    --line:rgba(31,61,43,.16);
+    --shadow:0 24px 60px -28px rgba(31,61,43,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Manrope',sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;letter-spacing:.01em}
+  .eyebrow{font-family:'Manrope',sans-serif;font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+
+  /* logo mark with gentle breathing */
+  .mark{display:inline-block;width:44px;height:44px;transform-origin:center;animation:breathe 8s ease-in-out infinite}
+  .mark .petal{fill:var(--white);stroke:var(--hvoya);stroke-width:1.1;opacity:.96}
+  .mark .core{fill:var(--gold)}
+  @keyframes breathe{
+    0%,100%{transform:scale(1) rotate(0deg)}
+    50%{transform:scale(1.04) rotate(15deg)}
+  }
+  .mark.dark .petal{fill:rgba(255,255,255,.96);stroke:#CBB36B}
+
+  /* ===== HERO split: text left, photo right ===== */
+  .hero{position:relative;background:var(--paper);padding:0;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;min-height:680px;align-items:stretch}
+  .hero-text{padding:42px 56px 56px;display:flex;flex-direction:column;position:relative;z-index:2}
+  .hero-text::before{content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(60% 50% at 0% 0%, rgba(82,114,127,.12), transparent 60%),
+               radial-gradient(50% 40% at 0% 100%, rgba(31,61,43,.08), transparent 60%)}
+  .hero-text>*{position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:var(--hvoya)}
+  .draft-tag{border:1px solid var(--line);border-radius:100px;padding:7px 14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--hvoya-soft);font-weight:600;background:rgba(255,255,255,.5)}
+  .hero-body{margin-top:auto;padding-top:60px;
+    animation:heroIn 1.1s cubic-bezier(.2,.7,.2,1) .15s both}
+  @keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .hero .place{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .hero h1{font-size:clamp(44px,5.5vw,82px);color:var(--hvoya);margin-top:14px;line-height:1.04}
+  .hero h1 em{font-style:italic;color:var(--rose)}
+  .hero .lede{font-size:clamp(16px,1.5vw,19px);color:var(--ink-soft);max-width:42ch;margin-top:24px;line-height:1.55}
+  .hero-photo{position:relative;background-image:url('img/r1_hero.jpg');background-size:cover;background-position:center;min-height:480px}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, var(--paper) 0%, transparent 14%)}
+  /* scroll indicator */
+  .scroll-cue{display:inline-flex;align-items:center;gap:10px;margin-top:32px;color:var(--hvoya-soft);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;font-weight:700}
+  .scroll-cue svg{animation:bob 2.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  section{padding:88px 0}
+  .sec-head{max-width:64ch;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(32px,4.4vw,54px);color:var(--hvoya);margin-top:14px}
+  .sec-head p{margin-top:18px;color:var(--ink-soft);font-size:17px;max-width:58ch}
+
+  /* context dark */
+  .context{background:var(--hvoya);color:#EEF1EC}
+  .context .eyebrow{color:#CBB36B}
+  .context h2{color:var(--white)}
+  .ctx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .ctx-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px;transition:transform .5s ease,background .5s ease}
+  .ctx-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.08)}
+  .ctx-card .n{font-family:'Cormorant Garamond',serif;font-size:32px;color:#CBB36B}
+  .ctx-card h3{font-size:22px;margin:8px 0 10px;color:var(--white);font-weight:600}
+  .ctx-card p{font-size:14.5px;color:#C5CEC6;line-height:1.55}
+
+  /* masterplan */
+  .plan-frame{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;padding:16px;transition:transform .8s ease}
+  .plan-frame img{border-radius:12px}
+  .plan-caption{margin-top:16px;font-size:13.5px;color:var(--ink-soft);text-align:center;line-height:1.5}
+  .legend{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 32px;margin-top:36px;max-width:960px}
+  .li{display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:var(--ink);opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+  .li.in{opacity:1;transform:none}
+  .li .pin{flex:0 0 28px;height:28px;border-radius:50%;background:var(--hvoya);color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .li b{display:block;font-weight:600}
+  .li span{color:var(--ink-soft);font-size:13.5px}
+
+  /* eco / reference */
+  .eco{background:var(--paper-2)}
+  .eco-tag{display:inline-block;background:var(--white);border:1px solid var(--line);border-radius:100px;padding:6px 14px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--hvoya-soft);font-weight:700;margin-bottom:18px}
+  .ref-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+  .ref-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--line);position:relative;transition:transform .5s ease,box-shadow .5s ease}
+  .ref-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .ref-card .imgwrap{overflow:hidden;aspect-ratio:16/9}
+  .ref-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .ref-card:hover img{transform:scale(1.06)}
+  .ref-card .cap{padding:16px 20px 20px}
+  .ref-card .cap h3{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--hvoya);font-weight:600;margin-bottom:5px}
+  .ref-card .cap p{font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .ref-card.big{grid-column:span 12}
+  .ref-card.half{grid-column:span 6}
+  .eco-principles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:42px}
+  .pp{padding:22px;background:var(--white);border:1px solid var(--line);border-radius:14px}
+  .pp .lbl{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:24px;font-weight:600;line-height:1}
+  .pp h4{font-size:14.5px;color:var(--hvoya);margin:8px 0 4px;font-weight:700}
+  .pp p{font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .ref-attr{margin-top:26px;text-align:center;font-size:12.5px;color:var(--ink-soft);font-style:italic;line-height:1.5}
+  @media(max-width:760px){.ref-card.half{grid-column:span 12}.eco-principles{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.eco-principles{grid-template-columns:1fr}}
+
+  /* identity */
+  .ident-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .ident blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.2vw,36px);color:var(--hvoya);line-height:1.22;border-left:3px solid var(--gold);padding-left:24px}
+  .ident-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:18px}
+  .ident-list li{display:flex;gap:14px;font-size:15.5px;color:var(--ink);align-items:flex-start}
+  .ident-list .b{flex:0 0 8px;height:8px;border-radius:50%;background:var(--rose);margin-top:9px}
+  .ident-list b{color:var(--ink);font-weight:600;display:block}
+  .ident-list span{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:2px}
+
+  /* meaning */
+  .meaning{background:var(--paper-2)}
+  .meaning .m-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .meaning .big-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(26px,3.4vw,40px);color:var(--hvoya);line-height:1.18}
+  .meaning .big-q em{color:var(--rose);font-style:italic}
+  .m-body p{color:var(--ink-soft);font-size:16px;margin-bottom:14px}
+  .m-body p strong{color:var(--ink);font-weight:600}
+
+  /* partners */
+  .fund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .fcard{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column;transition:transform .5s ease,box-shadow .5s ease}
+  .fcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .fcard .who{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+  .fcard h3{font-size:23px;color:var(--hvoya);margin:12px 0 6px;font-weight:600;line-height:1.18}
+  .fcard p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+  .admin-line{margin-top:32px;text-align:center;font-size:14.5px;color:var(--ink-soft);font-style:italic;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.55}
+
+  /* signatures */
+  .sign{background:var(--hvoya);color:#EEF1EC;padding:88px 0;text-align:center}
+  .sign-inner{display:flex;flex-direction:column;align-items:center}
+  .sign h2{color:var(--white);font-size:clamp(28px,4vw,46px);max-width:22ch;margin:24px auto 0}
+  .sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:54px;text-align:left;width:100%}
+  .sig{border-top:1px solid rgba(255,255,255,.18);padding-top:24px}
+  .sig .role{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#CBB36B;font-weight:700}
+  .sig .org{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);font-weight:600;margin-top:10px;line-height:1.2}
+  .sig .person{font-size:15px;color:#C5CEC6;margin-top:10px}
+  .sig .person b{color:var(--white);font-weight:600;display:block}
+  .sign-foot{margin-top:56px;font-size:13px;color:#9DB0A3;letter-spacing:.04em}
+
+  /* ===== VISION block — what we see on this playground ===== */
+  .vision{background:var(--paper-2)}
+  .vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .v-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 26px;transition:transform .5s ease,box-shadow .5s ease}
+  .v-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .v-card .ic{width:38px;height:38px;border-radius:10px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .v-card .ic svg{width:22px;height:22px;stroke:var(--hvoya);fill:none;stroke-width:1.6}
+  .v-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--hvoya);font-weight:600;margin-bottom:8px;line-height:1.2}
+  .v-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+  .v-card.full{grid-column:1/-1}
+
+  /* ===== BEFORE / AFTER placeholder block ===== */
+  .ba-stub{background:var(--paper);border:1.5px dashed rgba(31,61,43,.22);border-radius:18px;padding:48px 36px;text-align:center}
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;max-width:880px;margin-left:auto;margin-right:auto}
+  .ba-slot{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:42px 18px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+  .ba-slot .lbl{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--hvoya);font-weight:600}
+  .ba-slot .ph{font-size:12.5px;color:var(--ink-soft);letter-spacing:.06em}
+  .ba-note{font-size:13px;color:var(--ink-soft);margin-top:18px;font-style:italic;max-width:60ch;margin-left:auto;margin-right:auto}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.delay-1{transition-delay:.08s}
+  .reveal.delay-2{transition-delay:.16s}
+  .reveal.delay-3{transition-delay:.24s}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;min-height:0}
+    .hero-text{padding:28px 24px 40px}
+    .hero-photo{min-height:340px;order:-1}
+    .hero-photo::after{display:none}
+    .ctx-grid,.fund-grid{grid-template-columns:1fr}
+    .legend{grid-template-columns:1fr}
+    .ident-grid,.meaning .m-grid,.sign-grid{grid-template-columns:1fr;gap:30px}
+    .vision-grid{grid-template-columns:1fr!important}
+    .ba-grid{grid-template-columns:1fr!important}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero-bg{animation:none}
+    .mark{animation:none}
+    .scroll-cue svg{animation:none}
+    html{scroll-behavior:auto}
+    .hero-body{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO split: text left, photo right ===== -->
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="topbar">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 44 44" aria-hidden="true">
+            <ellipse class="petal" cx="22" cy="9" rx="5.4" ry="9"/>
+            <ellipse class="petal" cx="22" cy="35" rx="5.4" ry="9"/>
+            <ellipse class="petal" cx="9" cy="22" rx="9" ry="5.4"/>
+            <ellipse class="petal" cx="35" cy="22" rx="9" ry="5.4"/>
+            <ellipse class="petal" cx="12.5" cy="12.5" rx="8.4" ry="4.6" transform="rotate(45 12.5 12.5)"/>
+            <ellipse class="petal" cx="31.5" cy="31.5" rx="8.4" ry="4.6" transform="rotate(45 31.5 31.5)"/>
+            <ellipse class="petal" cx="31.5" cy="12.5" rx="8.4" ry="4.6" transform="rotate(-45 31.5 12.5)"/>
+            <ellipse class="petal" cx="12.5" cy="31.5" rx="8.4" ry="4.6" transform="rotate(-45 12.5 31.5)"/>
+            <circle class="core" cx="22" cy="22" r="4.4"/>
+          </svg>
+          <span class="name">Белый цветок</span>
+        </div>
+        <span class="draft-tag">Концепция · для обсуждения</span>
+      </div>
+
+      <div class="hero-body">
+        <div class="place">Алапаевск · набережная реки Нейвы</div>
+        <h1>Парк <em>семейного</em><br>отдыха</h1>
+        <p class="lede">Превращение заброшенной прибрежной территории в сердце города — место для семьи, гостя и паломника, точка притяжения и развития Алапаевска.</p>
+        <a class="scroll-cue" href="#why">смотреть концепцию
+          <svg width="18" height="18" viewBox="0 0 18 22" fill="none"><path d="M9 2v16M3 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo" role="img" aria-label="Природное игровое пространство — концепция"></div>
+  </div>
+</header>
+
+<!-- ===== CONTEXT ===== -->
+<section class="context" id="why">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Почему здесь и сейчас</span>
+      <h2>Город принимает Россию,<br>а отдохнуть семье — негде</h2>
+    </div>
+    <div class="ctx-grid">
+      <div class="ctx-card reveal"><div class="n">01</div><h3>Место памяти всей страны</h3><p>Напольная школа, Свято-Троицкий собор, монастырь Новомучеников. Алапаевск — точка Императорского маршрута Екатеринбург — Алапаевск, ежегодно собирающего тысячи паломников.</p></div>
+      <div class="ctx-card reveal delay-1"><div class="n">02</div><h3>Поток есть — инфраструктуры нет</h3><p>Гостиница «Металлург» в центре города фактически одна и сейчас модернизируется. Семьям с детьми и пожилым гостям не хватает мест, где можно провести день на воздухе.</p></div>
+      <div class="ctx-card reveal delay-2"><div class="n">03</div><h3>Река и заброшенный берег</h3><p>Большая прибрежная территория у Нейвы рядом с гостиницей сегодня заросшая и неблагоустроенная. Готовая площадка для парка: вода, рельеф, зелень, центр в шаговой доступности.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEFORE / AFTER (placeholder, awaits site photos) ===== -->
+<section style="padding-top:72px;padding-bottom:72px">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Сейчас и потом</span>
+      <h2>Заброшенный берег — и парк, который мы видим</h2>
+      <p>Сегодня — заросшая прибрежная территория без дорожек, освещения и точек притяжения. В концепции — благоустроенный парк с детской площадкой, амфитеатром, тихими зонами и пирсом.</p>
+    </div>
+    <div class="ba-stub">
+      <div class="ba-grid">
+        <div class="ba-slot">
+          <div class="lbl">Сейчас</div>
+          <div class="ph">фото территории</div>
+        </div>
+        <div class="ba-slot">
+          <div class="lbl">Будет</div>
+          <div class="ph">визуализация парка</div>
+        </div>
+      </div>
+      <p class="ba-note">Слайдер «было / стало» появится здесь после фотосъёмки участка.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MASTERPLAN ===== -->
+<section>
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Концепция территории</span>
+      <h2>Восемь зон, одно сердце</h2>
+      <p>В центре композиции — арт-объект «Белый цветок». От него расходятся дорожки к игровому пространству, амфитеатру, тихим зонам, пирсу и набережной. Так мотив-ромашка живёт в самой ткани парка, не диктуя при этом форму отдельным зонам.</p>
+    </div>
+    <div class="plan-frame reveal">
+      <img src="img/master_plan.jpg" alt="Мастер-план парка «Белый цветок» в Алапаевске" loading="lazy">
+      <p class="plan-caption">Концепция разработана для обсуждения. Визуализация носит предварительный характер. Площадь и габариты уточняются по итогам обмеров.</p>
+    </div>
+    <div class="legend">
+      <div class="li"><span class="pin">1</span><div><b>Главный вход</b><span>Арка, информационный стенд, навигация</span></div></div>
+      <div class="li"><span class="pin">2</span><div><b>Парковка</b><span>Основная и дополнительная</span></div></div>
+      <div class="li"><span class="pin">3</span><div><b>Игровое пространство</b><span>Детская площадка для разных возрастов</span></div></div>
+      <div class="li"><span class="pin">4</span><div><b>Зона отдыха · тихая</b><span>Беседки, скамейки, тень, спокойный отдых</span></div></div>
+      <div class="li"><span class="pin">5</span><div><b>Парковая зона</b><span>Прогулочные дорожки, озеленение, освещение</span></div></div>
+      <div class="li"><span class="pin">6</span><div><b>Амфитеатр</b><span>Открытая площадка для мероприятий, сцена</span></div></div>
+      <div class="li"><span class="pin" style="background:var(--gold)">7</span><div><b>Арт-объект «Белый цветок»</b><span>Цветник, арт-объект, фотозона</span></div></div>
+      <div class="li"><span class="pin" style="background:var(--river)">8</span><div><b>Пирс для речных трамвайчиков</b><span>Пирс с видом на реку Нейву</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ECO / MATERIALS ===== -->
+<section class="eco">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eco-tag">Природные материалы</span>
+      <h2 style="font-size:clamp(28px,4vw,46px);color:var(--hvoya);margin-top:8px">Экологический подход — основа площадки</h2>
+      <p>Игровое пространство строится из природных материалов: дерево, песок, щепа. Покрытие пропускает воду и дышит. Существующие деревья сохраняются, а планировка следует за рельефом — не наоборот. Безбарьерная среда: пологие заезды для колясок и доступ для всех.</p>
+    </div>
+
+    <div class="eco-principles">
+      <div class="pp reveal"><div class="lbl">01</div><h4>Дерево как основа</h4><p>Конструкции из натурального дерева в природной палитре цветов.</p></div>
+      <div class="pp reveal delay-1"><div class="lbl">02</div><h4>Природное покрытие</h4><p>Щепа, песок и помосты — без сплошной резины. Покрытие дышит и пропускает воду.</p></div>
+      <div class="pp reveal delay-2"><div class="lbl">03</div><h4>Сохранение деревьев</h4><p>Площадка строится вокруг существующих деревьев — корни не повреждаются.</p></div>
+      <div class="pp reveal delay-3"><div class="lbl">04</div><h4>Безбарьерная среда</h4><p>Пологие заезды для колясок, ровные подходы, инклюзивные игровые элементы.</p></div>
+    </div>
+
+    <div class="ref-grid">
+      <div class="ref-card big reveal"><div class="imgwrap"><img src="img/r1_hero.jpg" alt="Природное игровое пространство" loading="lazy"></div>
+        <div class="cap"><h3>Природное игровое пространство</h3><p>Площадка построена вокруг деревьев, а не поверх них. Активные и спокойные игры, разные возрасты, открытая планировка.</p></div></div>
+      <div class="ref-card half reveal"><div class="imgwrap"><img src="img/r2_climb.jpg" alt="Канатно-лазательный комплекс" loading="lazy"></div>
+        <div class="cap"><h3>Для школьников и подростков</h3><p>Канатные модули, лазалки и башни из дерева для активных игр и тренировки координации.</p></div></div>
+      <div class="ref-card half reveal delay-1"><div class="imgwrap"><img src="img/r3_quiet.jpg" alt="Гамак и тихая зона" loading="lazy"></div>
+        <div class="cap"><h3>Тихая зона и отдых</h3><p>Гамаки среди деревьев, природное песчаное покрытие, мягкие переходы и сенсорные элементы.</p></div></div>
+      <div class="ref-card half reveal"><div class="imgwrap"><img src="img/r4_hill.jpg" alt="Горка-холм с навесом" loading="lazy"></div>
+        <div class="cap"><h3>Для самых маленьких</h3><p>Горка-холм, песок, навес от солнца — мягкие материалы и масштаб, понятный детям дошкольного возраста.</p></div></div>
+      <div class="ref-card half reveal delay-1"><div class="imgwrap"><img src="img/r5_theater.jpg" alt="Детский кукольный театр" loading="lazy"></div>
+        <div class="cap"><h3>Кукольный театр</h3><p>Сцена для детских спектаклей и культурной программы — мостик к программе семейных событий парка.</p></div></div>
+    </div>
+    <p class="ref-attr">За основу взят реализованный проект бюро «Тайга» в парке Маяковского, Екатеринбург, — как ориентир уровня и подхода.</p>
+  </div>
+</section>
+
+<!-- ===== VISION — how we see this playground ===== -->
+<section class="vision">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Как мы видим эту площадку</span>
+      <h2>Не просто детская площадка — пространство опыта</h2>
+      <p>Мы планируем такое место, где каждая зона рассказывает свою историю, а ребёнок сам выбирает, как ему сегодня играть. Активно или спокойно, в воде или в песке, в шуме или в тишине. Это первая площадка такого уровня в Алапаевске.</p>
+    </div>
+
+    <div class="vision-grid">
+      <div class="v-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c-3 4-5 7-5 10a5 5 0 0 0 10 0c0-3-2-6-5-10z"/></svg></div>
+        <h3>Игры с водой и песком</h3>
+        <p>Первая в городе зона, где летом можно экспериментировать: качать колонку, делать запруды, наблюдать, как двигается вода. Дети узнают на ощупь, почему из сухого песка не получится куличик, а из мокрого — получится. Такие игры снимают напряжение, тренируют терпение и формируют познание мира.</p>
+      </div>
+
+      <div class="v-card reveal delay-1">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12"/><rect x="9" y="13" width="6" height="8"/></svg></div>
+        <h3>Песочный уголок для малышей</h3>
+        <p>Отдельная мягкая зона: домик, пеньки, меловая доска. Безопасные природные материалы и масштаб, понятный детям дошкольного возраста. Тихое место, где малыш чувствует себя главным героем.</p>
+      </div>
+
+      <div class="v-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V6l11-3v12"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="15" r="3"/></svg></div>
+        <h3>Музыкальные элементы</h3>
+        <p>В разных уголках площадки — звуковые инструменты, рассчитанные на детский рост: глюкофоны, дендрофон, вращающийся звуковой диск. Дети сами становятся музыкантами и открывают, что звук — это тоже игра.</p>
+      </div>
+
+      <div class="v-card reveal delay-1">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h18"/><circle cx="12" cy="6" r="3"/><path d="M9 18c0-3 6-3 6 0"/></svg></div>
+        <h3>Качели и движение для всех</h3>
+        <p>Качели, гамаки, качель-гнездо, балансир, карусель, качалки на пружинках, батуты — ребёнок сам выбирает, какое сегодня настроение. Спокойное созерцание в гамаке или активная игра в гнезде.</p>
+      </div>
+
+      <div class="v-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21l5-9 4 4 5-7 4 6"/><circle cx="6" cy="5" r="2"/></svg></div>
+        <h3>Для школьников и подростков</h3>
+        <p>Большой комплекс из брёвен, оборудование для тренировки баланса, лазательные модули, горка-тоннель с рельефными кочками. Здесь сложно — и поэтому интересно. Подростки тоже находят своё место в парке.</p>
+      </div>
+
+      <div class="v-card reveal delay-1">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v6M5 9l-2 2M19 9l2 2M5 22h14"/><circle cx="12" cy="14" r="6"/></svg></div>
+        <h3>Свет и круглогодичность</h3>
+        <p>По всей территории — зоны для отдыха или ожидания детей. Игровое пространство освещается современными светильниками, поэтому площадка живёт и зимними вечерами, когда темнеет рано. Парк работает не сезонно, а круглый год.</p>
+      </div>
+
+      <div class="v-card full reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12c2-4 5-6 9-6s7 2 9 6"/><path d="M3 18c2-2 5-3 9-3s7 1 9 3"/></svg></div>
+        <h3>Безопасное природное покрытие</h3>
+        <p>Во всех игровых зонах — щепа или песок. Покрытие дышит, пропускает воду, сохраняет корни деревьев и при этом смягчает падения. Площадка гармонично вливается в природный ландшафт прибрежной зоны и становится её естественным продолжением, а не «вставкой» в парк.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IDENTITY ===== -->
+<section class="ident">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Айдентика и символика</span>
+      <h2>Белый цветок — в смысле, а не в форме</h2>
+      <p>Мотив-ромашка проходит через айдентику парка — навигацию, малые архитектурные формы и арт-объект — но не диктует форму самой детской площадки. Площадка остаётся свободной и природной.</p>
+    </div>
+    <div class="ident-grid">
+      <blockquote>Белый цветок — символ чистоты, семьи, добра и заботы о детях. Имя проекта не привязано к конкретным людям, а значит, парк будет жить десятилетиями.</blockquote>
+      <ul class="ident-list">
+        <li><span class="b"></span><div><b>Природные цвета дерева</b><span>основной материал — дерево в его естественной палитре</span></div></li>
+        <li><span class="b"></span><div><b>Белые акценты</b><span>в малых архитектурных формах, навигации и арт-объектах</span></div></li>
+        <li><span class="b"></span><div><b>Клумбы-лепестки</b><span>цветник в форме ромашки в центральной зоне</span></div></li>
+        <li><span class="b"></span><div><b>Арт-объект «Белый цветок»</b><span>сердце парка и фотозона — точка притяжения</span></div></li>
+        <li><span class="b"></span><div><b>Мотивы уральских трав и ромашки</b><span>в мощении, ограждениях и сувенирной линейке парка</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEANING ===== -->
+<section class="meaning">
+  <div class="wrap reveal">
+    <div class="m-grid">
+      <p class="big-q">Парк, который заботится о детях, продолжает дело великой <em>княгини</em>.</p>
+      <div class="m-body">
+        <span class="eyebrow">Смысл проекта</span>
+        <p style="margin-top:14px"><strong>Елизавета Фёдоровна</strong> вошла в историю заботой о детях, сиротах и милосердием. Детская площадка в центре проекта — прямая, живая связь с тем, чему посвящена память Алапаевска.</p>
+        <p><strong>«Белый цветок»</strong> — благотворительная традиция, которую в Алапаевске уже празднуют: помощь детям и милосердие, символ — белая ромашка. Этот образ глубоко связан с историей города и православной благотворительностью.</p>
+        <p>Так событие памяти превращается в место, куда возвращаются: и гость, приехавший с историческим интересом, и местная семья отдыхают в одном парке у воды.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTNERS ===== -->
+<section>
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Как реализуем</span>
+      <h2>Три источника, одна территория</h2>
+      <p>Проект собирается как партнёрство: бизнес-сообщество, местные предприятия и некоммерческая организация объединяют ресурсы вокруг одного общего замысла.</p>
+    </div>
+    <div class="fund-grid">
+      <div class="fcard reveal">
+        <span class="who">Спонсорская поддержка</span>
+        <h3>Детская площадка</h3>
+        <p>Мы будем искать партнёров — компании и фонды, готовые поддержать создание новой точки притяжения города. Их участие — со-брендинг, благодарственные таблички и совместное открытие парка.</p>
+      </div>
+      <div class="fcard reveal delay-1">
+        <span class="who">Участие местных предприятий</span>
+        <h3>Развитие города</h3>
+        <p>Уральские компании готовы участвовать в развитии своего города — материалами, благоустройством или софинансированием. Это вклад в общий проект и в качество жизни земляков.</p>
+      </div>
+      <div class="fcard reveal delay-2">
+        <span class="who">НКО · президентские гранты</span>
+        <h3>Программы и события</h3>
+        <p>Программное наполнение парка: фестиваль «Белый цветок», семейные и детские программы, навигация Императорского маршрута, просветительские материалы.</p>
+      </div>
+    </div>
+    <p class="admin-line reveal">При информационной и архитектурной поддержке администрации города Алапаевска — проект развивает туристический потенциал города и Императорский маршрут.</p>
+  </div>
+</section>
+
+<!-- ===== SIGNATURES ===== -->
+<section class="sign">
+  <div class="wrap reveal">
+    <div class="sign-inner">
+      <svg class="mark dark" viewBox="0 0 44 44" aria-hidden="true" style="width:54px;height:54px">
+        <ellipse class="petal" cx="22" cy="9" rx="5.4" ry="9"/>
+        <ellipse class="petal" cx="22" cy="35" rx="5.4" ry="9"/>
+        <ellipse class="petal" cx="9" cy="22" rx="9" ry="5.4"/>
+        <ellipse class="petal" cx="35" cy="22" rx="9" ry="5.4"/>
+        <ellipse class="petal" cx="12.5" cy="12.5" rx="8.4" ry="4.6" transform="rotate(45 12.5 12.5)"/>
+        <ellipse class="petal" cx="31.5" cy="31.5" rx="8.4" ry="4.6" transform="rotate(45 31.5 31.5)"/>
+        <ellipse class="petal" cx="31.5" cy="12.5" rx="8.4" ry="4.6" transform="rotate(-45 31.5 12.5)"/>
+        <ellipse class="petal" cx="12.5" cy="31.5" rx="8.4" ry="4.6" transform="rotate(-45 12.5 31.5)"/>
+        <circle class="core" cx="22" cy="22" r="4.4" fill="#CBB36B"/>
+      </svg>
+      <h2>Инициаторы проекта</h2>
+      <div class="sign-grid">
+        <div class="sig">
+          <div class="role">Инициатор проекта · бизнес-партнёр</div>
+          <div class="org">ООО «Металлург»</div>
+          <p class="person">Директор<br><b>Никонов Сергей Иванович</b></p>
+        </div>
+        <div class="sig">
+          <div class="role">Социальный партнёр · общественная инициатива</div>
+          <div class="org">НКО «Центр культурно-туристического развития „Уралочка"»</div>
+          <p class="person">Председатель НКО, руководитель проекта<br><b>Хамитова Мария Сергеевна</b></p>
+        </div>
+      </div>
+      <div class="sign-foot">Концепция разработана для обсуждения · Алапаевск, 2026</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Reveal on scroll with cascading delays
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal, .li').forEach(el => io.observe(el));
+    // Fallback safety
+    setTimeout(() => document.querySelectorAll('.reveal:not(.in), .li:not(.in)').forEach(el => el.classList.add('in')), 2400);
+  } else {
+    document.querySelectorAll('.reveal, .li').forEach(el => el.classList.add('in'));
+  }
+
+  // Smooth scroll from scroll cue
+  document.querySelector('.scroll-cue')?.addEventListener('click', () => {
+    const next = document.querySelector('.context');
+    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  document.querySelector('.scroll-cue')?.style.setProperty('cursor', 'pointer');
+</script>
+</body>
+</html>
